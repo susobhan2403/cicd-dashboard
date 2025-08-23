@@ -1,0 +1,190 @@
+﻿@page "/"
+@inject IJSRuntime JS
+
+<h1 class="mb-3">CI/CD Release Dashboard</h1>
+<p class="text-muted">Visibility of current deployments, releases & compliance</p>
+
+<!-- KPI Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+        <div class="card card-kpi shadow-sm">
+            <div class="card-body">
+                <div class="small-muted">Org-wide Compliance</div>
+                <div class="h4 mb-0">@DataStore.Kpis.OrgCompliance%</div>
+                <div class="small-muted">Weighted across mandatory gates</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="card card-kpi shadow-sm">
+            <div class="card-body">
+                <div class="small-muted">Deployments Today</div>
+                <div class="h4 mb-0">@DataStore.Kpis.DeploymentsToday</div>
+                <div class="small-muted">All environments</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="card card-kpi shadow-sm">
+            <div class="card-body">
+                <div class="small-muted">Change Failure Rate</div>
+                <div class="h4 mb-0">@DataStore.Kpis.ChangeFailureRate%</div>
+                <div class="small-muted">Last 30 days</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="card card-kpi shadow-sm">
+            <div class="card-body">
+                <div class="small-muted">MTTR</div>
+                <div class="h4 mb-0">@DataStore.Kpis.MttrHours h</div>
+                <div class="small-muted">Mean time to restore</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row 1: Donut + Violations -->
+<div class="row g-3 mb-4">
+    <div class="col-lg-4">
+        <div class="chart-box">
+            <div class="section-title">Compliance (Org-wide)</div>
+            <div id="complianceDonut" style="height:260px"></div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="chart-box">
+            <div class="section-title">Policy Violations by Type (open)</div>
+            <div id="violationsBar" style="height:260px"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Compliance by stream -->
+<div class="chart-box mb-4">
+    <div class="section-title">Compliance by Value Stream <span class="small-muted">(Stacked: Compliant vs Non-compliant releases)</span></div>
+    <div id="byStreamChart" style="height:320px"></div>
+</div>
+
+<!-- Trend -->
+<div class="chart-box mb-4">
+    <div class="section-title">Compliance Trend & Release Volume <span class="small-muted">(Last 3 weeks)</span></div>
+    <div id="trendChart" style="height:360px"></div>
+</div>
+
+<!-- Tables -->
+<div class="row g-3 mb-4">
+    <div class="col-lg-6">
+        <div class="chart-box">
+            <div class="section-title">Non-compliant Releases (last 48h)</div>
+            <input class="form-control form-control-sm mb-2" placeholder="Search application…" @bind-value="search" @bind-value:event="oninput" />
+            <div class="table-responsive">
+                <table class="table table-sm align-middle">
+                    <thead>
+                        <tr>
+                            <th>Date/Time</th>
+                            <th>Application</th>
+                            <th>Release</th>
+                            <th>Env</th>
+                            <th>Failed Gates</th>
+                            <th>Owner</th>
+                            <th>Risk</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var r in FilteredNonCompliant)
+                        {
+                            <tr>
+                                <td>@r.Date</td>
+                                <td>@r.App</td>
+                                <td>@r.Release</td>
+                                <td>@r.Env</td>
+                                <td>
+                                    @foreach (var g in r.FailedGates)
+                                    {
+                                        <span class="badge bg-danger-subtle text-danger-emphasis border me-1 mb-1 badge-pill">@g</span>
+                                    }
+                                </td>
+                                <td>@r.Owner</td>
+                                <td>@r.Risk</td>
+                                <td><a href="#" class="link-primary">View logs</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="chart-box">
+            <div class="section-title">Upcoming Releases (next 24–48h)</div>
+            <div class="table-responsive">
+                <table class="table table-sm align-middle">
+                    <thead>
+                        <tr>
+                            <th>Schedule</th>
+                            <th>Application</th>
+                            <th>Release</th>
+                            <th>Env</th>
+                            <th>Compliance Readiness</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var u in DataStore.Upcoming)
+                        {
+                            <tr>
+                                <td>@u.Date</td>
+                                <td>@u.App</td>
+                                <td>@u.Release</td>
+                                <td>@u.Env</td>
+                                <td style="min-width:150px;">
+                                    <div class="progress" role="progressbar" aria-label="Readiness" aria-valuenow="@u.Readiness" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar" style="width:@u.Readiness%">@u.Readiness%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Standards panel -->
+<div class="chart-box mb-5">
+    <div class="section-title">Mandatory Stage Gates & Standards</div>
+    <ul>
+        @foreach (var g in DataStore.MandatoryGates)
+        {
+            <li>@g</li>
+        }
+    </ul>
+</div>
+
+@code {
+    private string search = string.Empty;
+    private IEnumerable<ReleaseRecord> FilteredNonCompliant =>
+      DataStore.NonCompliantReleases.Where(r => r.App.Contains(search, StringComparison.OrdinalIgnoreCase));
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("amchartsInterop.createComplianceDonut", "complianceDonut", DataStore.Kpis.OrgCompliance);
+            await JS.InvokeVoidAsync("amchartsInterop.createViolationsBar", "violationsBar", DataStore.Violations);
+            await JS.InvokeVoidAsync("amchartsInterop.createComplianceByStream", "byStreamChart", DataStore.Streams);
+            await JS.InvokeVoidAsync("amchartsInterop.createComplianceTrend", "trendChart", DataStore.Trend);
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "complianceDonut");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "violationsBar");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "byStreamChart");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "trendChart");
+    }
+}

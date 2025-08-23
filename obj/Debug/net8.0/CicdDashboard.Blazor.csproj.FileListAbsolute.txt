@@ -1,0 +1,7 @@
+C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\CicdDashboard.Blazor.csproj.AssemblyReference.cache
+C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\CicdDashboard.Blazor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\CicdDashboard.Blazor.AssemblyInfoInputs.cache
+C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\CicdDashboard.Blazor.AssemblyInfo.cs
+C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\CicdDashboard.Blazor.csproj.CoreCompileInputs.cache
+C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\CicdDashboard.Blazor.MvcApplicationPartsAssemblyInfo.cache
