@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "CicdDashboard.Blazor",
   "resources": {
-    "hash": "sha256-CbeJnkIPfFZjIoZeR1DceEUgcuXaRbN7Q2yLHEMTcUU=",
+    "hash": "sha256-eTRZUfFwYtIq3VFboDTBPFAYrqKXhahcPg1pzYbuOF0=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-O/NCYcAN9uPocD7ns7AzF/cqx7f5vL1PTJCQs0vEXyk="
     },
@@ -209,10 +209,10 @@
       "mscorlib.wasm": "sha256-RLW/7NVuhoPfq151II3kX2kWHgBwQgpCw9aemQNg3to=",
       "netstandard.wasm": "sha256-lAg5WvTiA8wbsIwlr51xh0YWpXT9F5EX3Cnv+11O/mU=",
       "System.Private.CoreLib.wasm": "sha256-3O3muuRQwoLRecYRjfIFWUURvTjP4EmD2O8wYg2UDNY=",
-      "CicdDashboard.Blazor.wasm": "sha256-YaNpOcKs6nKPtNW74tzUEF66EqxLQ3ZkHvIUhKbDXxU="
+      "CicdDashboard.Blazor.wasm": "sha256-A09KMjRrNld3yFcLL7fVm6oXrtqT4e2KSk7xppzn370="
     },
     "pdb": {
-      "CicdDashboard.Blazor.pdb": "sha256-aC4qkdeKWcCuV1HTi0Ps0927XirgiJaxlfl5D1JvVh8="
+      "CicdDashboard.Blazor.pdb": "sha256-LVhcskbMxs4IJBCXu9KECkYWd1BHBkUe9nHIFhx1t7Q="
     }
   },
   "cacheBootResources": true,

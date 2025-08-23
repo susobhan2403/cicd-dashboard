@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CicdDashboard.Blazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+613271bb15ed5495b218890e140ccb2cac0a8609")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+742fe8d02b6a10531a925ef64fa2d3488fc9a347")]
 [assembly: System.Reflection.AssemblyProductAttribute("CicdDashboard.Blazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CicdDashboard.Blazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

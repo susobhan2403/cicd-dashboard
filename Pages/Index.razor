@@ -142,13 +142,13 @@
                     <button class="btn btn-outline-primary @(selectedMetric == "mttr" ? "active" : "")" @onclick='() => ChangeMetric("mttr")'>MTTR</button>
                 </div>
             </div>
-            <div id="performanceChart" class="skeleton" style="height:300px"></div>
+            <div id="performanceChart" class="chart skeleton" style="height:300px"></div>
         </div>
     </div>
     <div class="col-lg-4">
         <div class="card p-3 h-100">
             <div class="kpi-title text-uppercase mb-2">Share by Violations</div>
-            <div id="violationsDonut" class="skeleton" style="height:300px"></div>
+            <div id="violationsDonut" class="chart skeleton" style="height:300px"></div>
         </div>
     </div>
 </div>
@@ -157,7 +157,7 @@
 @* region Compliance by Value Stream *@
 <div class="card p-3 mb-4">
     <div class="kpi-title text-uppercase mb-2">Compliance by Value Stream</div>
-    <div id="byStreamChart" class="skeleton" style="height:300px"></div>
+    <div id="byStreamChart" class="chart skeleton" style="height:300px"></div>
 </div>
 @* endregion *@
 

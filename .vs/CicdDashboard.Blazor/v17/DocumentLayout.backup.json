@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:wwwroot\\js\\amchartsinterop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\services\\datastore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:services\\datastore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\models\\records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -52,14 +52,14 @@
               "RelativeDocumentMoniker": "wwwroot\\js\\amchartsInterop.js",
               "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\js\\amchartsInterop.js",
               "RelativeToolTip": "wwwroot\\js\\amchartsInterop.js",
-              "ViewState": "AgIAALgAAAAAAAAAAAAUwM8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAMsAAAAAAAAAAAAUwOIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-08-23T15:57:13.542Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "wwwroot\\index.html",
@@ -67,25 +67,24 @@
               "RelativeToolTip": "wwwroot\\index.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-08-23T15:56:34.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T15:56:34.079Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "app.css",
               "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\css\\app.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\app.css",
               "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\css\\app.css",
               "RelativeToolTip": "wwwroot\\css\\app.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADUAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-08-23T15:54:01.069Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Shared\\MainLayout.razor",
               "RelativeDocumentMoniker": "Shared\\MainLayout.razor",
@@ -93,12 +92,11 @@
               "RelativeToolTip": "Shared\\MainLayout.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T15:53:29.549Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T15:53:29.549Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "DataStore.cs",
               "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Services\\DataStore.cs",
               "RelativeDocumentMoniker": "Services\\DataStore.cs",
@@ -106,18 +104,17 @@
               "RelativeToolTip": "Services\\DataStore.cs",
               "ViewState": "AgIAABMAAAAAAAAAAADwvy4AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T15:52:41.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T15:52:41.729Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Index.razor",
               "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Pages\\Index.razor",
               "RelativeDocumentMoniker": "Pages\\Index.razor",
               "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Pages\\Index.razor",
               "RelativeToolTip": "Pages\\Index.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAPUAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAAAJ8AAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-23T15:41:41.216Z",
               "EditorCaption": ""
@@ -132,8 +129,7 @@
               "RelativeToolTip": "Models\\Records.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T15:41:13.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T15:41:13.322Z"
             }
           ]
         }

@@ -20,6 +20,7 @@ window.amchartsInterop = (function () {
         destroy(divId);
         const root = am5.Root.new(divId);
         root.setThemes([am5themes_Animated.new(root)]);
+        root.dom.style.overflow = 'hidden';
         const isDark = document.body.classList.contains('theme-dark');
         root.interfaceColors.set('text', am5.color(isDark ? 0xf8fafc : 0x0f172a));
         root.interfaceColors.set('grid', am5.color(isDark ? 0x475569 : 0x94a3b8));
@@ -32,14 +33,20 @@ window.amchartsInterop = (function () {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
         const chart = root.container.children.push(am5xy.XYChart.new(root, {
-            paddingLeft: 0, paddingRight: 0, paddingTop: 0, paddingBottom: 0
+            paddingLeft: 5, paddingRight: 5, paddingTop: 2, paddingBottom: 2
         }));
+        const xRenderer = am5xy.AxisRendererX.new(root, { visible: false });
+        xRenderer.labels.template.set('visible', false);
+        xRenderer.grid.template.set('visible', false);
         const xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
-            renderer: am5xy.AxisRendererX.new(root, { visible: false }),
+            renderer: xRenderer,
             min: 0, max: data.length - 1, strictMinMax: true
         }));
+        const yRenderer = am5xy.AxisRendererY.new(root, { visible: false });
+        yRenderer.labels.template.set('visible', false);
+        yRenderer.grid.template.set('visible', false);
         const yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-            renderer: am5xy.AxisRendererY.new(root, { visible: false }),
+            renderer: yRenderer,
             min: Math.min(...data), max: Math.max(...data)
         }));
         const series = chart.series.push(am5xy.LineSeries.new(root, {
@@ -54,12 +61,14 @@ window.amchartsInterop = (function () {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
         const chart = root.container.children.push(
-            am5percent.PieChart.new(root, { innerRadius: am5.percent(70) })
+            am5percent.PieChart.new(root, { innerRadius: am5.percent(70), paddingTop: 10, paddingRight: 10, paddingBottom: 10, paddingLeft: 10 })
         );
         const series = chart.series.push(
             am5percent.PieSeries.new(root, { valueField: "value", categoryField: "category" })
         );
         series.slices.template.setAll({ strokeOpacity: 0, tooltipText: "{category}: {value}%" });
+        series.labels.template.set('visible', false);
+        series.ticks.template.set('visible', false);
         series.data.setAll([
             { category: "Compliant", value: compliantPercent },
             { category: "Non-compliant", value: 100 - compliantPercent },
@@ -79,7 +88,7 @@ window.amchartsInterop = (function () {
     function createComplianceByStream(divId, data) {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
-        const chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout }));
+        const chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout, paddingTop: 10, paddingRight: 10, paddingBottom: 10, paddingLeft: 10 }));
         const xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
             categoryField: "stream",
             renderer: am5xy.AxisRendererX.new(root, { minGridDistance: 20 })
@@ -113,7 +122,13 @@ window.amchartsInterop = (function () {
             });
         });
 
-        const legend = chart.children.push(am5.Legend.new(root, { centerX: am5.percent(50), x: am5.percent(50) }));
+        const legend = root.container.children.push(am5.Legend.new(root, {
+            centerX: am5.percent(50),
+            x: am5.percent(50),
+            marginTop: 10,
+            layout: root.horizontalLayout
+        }));
+        legend.labels.template.setAll({ oversizedBehavior: 'wrap' });
         legend.data.setAll([s1, s2]);
 
         xAxis.data.setAll(data);
@@ -124,7 +139,7 @@ window.amchartsInterop = (function () {
     function createPerformanceChart(divId, data, metric) {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
-        const chart = root.container.children.push(am5xy.XYChart.new(root, { paddingLeft: 10, layout: root.verticalLayout }));
+        const chart = root.container.children.push(am5xy.XYChart.new(root, { paddingTop: 10, paddingRight: 10, paddingBottom: 10, paddingLeft: 10, layout: root.verticalLayout }));
 
         const xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 80 });
         xRenderer.labels.template.setAll({
@@ -159,7 +174,13 @@ window.amchartsInterop = (function () {
             tooltip: am5.Tooltip.new(root, { labelText: '{name}: {valueY}' })
         }));
 
-        const legend = chart.children.push(am5.Legend.new(root, { centerX: am5.percent(50), x: am5.percent(50) }));
+        const legend = root.container.children.push(am5.Legend.new(root, {
+            centerX: am5.percent(50),
+            x: am5.percent(50),
+            marginTop: 10,
+            layout: root.horizontalLayout
+        }));
+        legend.labels.template.setAll({ oversizedBehavior: 'wrap' });
         legend.data.setAll([line, cols]);
 
         const parsed = data.map(d => ({ ...d, date: new Date(d.date).getTime() }));
@@ -171,12 +192,14 @@ window.amchartsInterop = (function () {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
         const chart = root.container.children.push(
-            am5percent.PieChart.new(root, { innerRadius: am5.percent(60) })
+            am5percent.PieChart.new(root, { innerRadius: am5.percent(60), paddingTop: 10, paddingRight: 10, paddingBottom: 10, paddingLeft: 10 })
         );
         const series = chart.series.push(
             am5percent.PieSeries.new(root, { valueField: 'count', categoryField: 'type' })
         );
         series.slices.template.setAll({ strokeOpacity: 0, tooltipText: '{category}: {valuePercentTotal.formatNumber("0.0")}%' });
+        series.labels.template.set('visible', false);
+        series.ticks.template.set('visible', false);
         series.data.setAll(data);
         const total = data.reduce((sum, d) => sum + d.count, 0);
         chart.seriesContainer.children.push(
@@ -188,14 +211,20 @@ window.amchartsInterop = (function () {
                 fontWeight: '600'
             })
         );
-        const legend = chart.children.push(am5.Legend.new(root, { centerX: am5.percent(50), x: am5.percent(50), y: am5.percent(90), layout: root.horizontalLayout }));
+        const legend = root.container.children.push(am5.Legend.new(root, {
+            centerX: am5.percent(50),
+            x: am5.percent(50),
+            marginTop: 10,
+            layout: am5.GridLayout.new(root, { maxColumns: 2 })
+        }));
+        legend.labels.template.setAll({ oversizedBehavior: 'wrap' });
         legend.data.setAll(series.dataItems);
     }
 
     function createViolationsBar(divId, data) {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
-        const chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout }));
+        const chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout, paddingTop: 10, paddingRight: 10, paddingBottom: 10, paddingLeft: 10 }));
         const xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, { renderer: am5xy.AxisRendererX.new(root, {}), min: 0 }));
         const yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, { categoryField: "type", renderer: am5xy.AxisRendererY.new(root, { inversed: true }) }));
         const series = chart.series.push(am5xy.ColumnSeries.new(root, { name: "Violations", xAxis, yAxis, valueXField: "count", categoryYField: "type" }));
