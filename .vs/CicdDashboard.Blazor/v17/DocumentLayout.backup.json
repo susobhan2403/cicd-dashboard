@@ -3,44 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\services\\datastore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:services\\datastore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\models\\records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:models\\records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\wwwroot\\js\\amchartsinterop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:wwwroot\\js\\amchartsinterop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\services\\datastore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:services\\datastore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|c:\\users\\susob\\onedrive\\documents\\cicd-dashboard\\cicddashboard.blazor\\models\\records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F7DC443-F545-6DFB-C877-69F4EA44F30B}|CicdDashboard.Blazor.csproj|solutionrelative:models\\records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,125 +46,94 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.razor",
-              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Pages\\Index.razor",
-              "RelativeDocumentMoniker": "Pages\\Index.razor",
-              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Pages\\Index.razor",
-              "RelativeToolTip": "Pages\\Index.razor",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAqwL0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T13:52:10.721Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DataStore.cs",
-              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Services\\DataStore.cs",
-              "RelativeDocumentMoniker": "Services\\DataStore.cs",
-              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Services\\DataStore.cs",
-              "RelativeToolTip": "Services\\DataStore.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T13:51:15.967Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Records.cs",
-              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Models\\Records.cs",
-              "RelativeDocumentMoniker": "Models\\Records.cs",
-              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Models\\Records.cs",
-              "RelativeToolTip": "Models\\Records.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T13:51:08.682Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\index.html",
-              "RelativeDocumentMoniker": "wwwroot\\index.html",
-              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\index.html",
-              "RelativeToolTip": "wwwroot\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-08-23T13:50:14.014Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\_Imports.razor",
-              "RelativeDocumentMoniker": "_Imports.razor",
-              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\_Imports.razor",
-              "RelativeToolTip": "_Imports.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T13:49:51.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "App.razor",
-              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\App.razor",
-              "RelativeDocumentMoniker": "App.razor",
-              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\App.razor",
-              "RelativeToolTip": "App.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T13:49:40.835Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T13:49:26.482Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "amchartsInterop.js",
               "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\js\\amchartsInterop.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\amchartsInterop.js",
               "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\js\\amchartsInterop.js",
               "RelativeToolTip": "wwwroot\\js\\amchartsInterop.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIIAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAALgAAAAAAAAAAAAUwM8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-23T13:47:24.993Z"
+              "WhenOpened": "2025-08-23T15:57:13.542Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\index.html",
+              "RelativeToolTip": "wwwroot\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-23T15:56:34.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "app.css",
               "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\css\\app.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\app.css",
               "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\wwwroot\\css\\app.css",
               "RelativeToolTip": "wwwroot\\css\\app.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-23T13:47:18.108Z"
+              "WhenOpened": "2025-08-23T15:54:01.069Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Shared\\MainLayout.razor",
               "RelativeDocumentMoniker": "Shared\\MainLayout.razor",
               "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Shared\\MainLayout.razor",
               "RelativeToolTip": "Shared\\MainLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T13:46:59.401Z"
+              "WhenOpened": "2025-08-23T15:53:29.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataStore.cs",
+              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Services\\DataStore.cs",
+              "RelativeDocumentMoniker": "Services\\DataStore.cs",
+              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Services\\DataStore.cs",
+              "RelativeToolTip": "Services\\DataStore.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAADwvy4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T15:52:41.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Pages\\Index.razor",
+              "RelativeToolTip": "Pages\\Index.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAPUAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-23T15:41:41.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Records.cs",
+              "DocumentMoniker": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Models\\Records.cs",
+              "RelativeDocumentMoniker": "Models\\Records.cs",
+              "ToolTip": "C:\\Users\\susob\\OneDrive\\Documents\\CICD-Dashboard\\CicdDashboard.Blazor\\Models\\Records.cs",
+              "RelativeToolTip": "Models\\Records.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T15:41:13.322Z",
+              "EditorCaption": ""
             }
           ]
         }

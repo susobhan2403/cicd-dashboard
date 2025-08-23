@@ -6,6 +6,14 @@ public static class DataStore
 {
     public static Kpis Kpis => new(OrgCompliance: 82, DeploymentsToday: 47, ChangeFailureRate: 6.4, MttrHours: 1.9);
 
+    // Sparklines (last 7 periods) for KPI tiles
+    public static IReadOnlyList<int> SparklineDeploys => new[] { 12, 18, 14, 21, 19, 25, 23 };
+    public static IReadOnlyList<int> SparklineCompliance => new[] { 74, 76, 78, 81, 80, 83, 82 };
+    public static IReadOnlyList<double> SparklineCfr => new[] { 7.2, 6.8, 6.4, 5.9, 6.1, 5.5, 5.2 };
+    public static IReadOnlyList<double> SparklineMttr => new[] { 2.5, 2.2, 1.9, 2.1, 1.8, 1.6, 1.9 };
+    public static IReadOnlyList<int> SparklineViolations => new[] { 42, 39, 40, 38, 36, 35, 34 };
+    public static IReadOnlyList<int> SparklineUpcoming => new[] { 3, 4, 5, 3, 4, 4, 5 };
+
     public static IEnumerable<StreamCompliance> Streams => new[]
     {
         new StreamCompliance("Payments", 28, 4),
@@ -17,12 +25,12 @@ public static class DataStore
 
     public static IEnumerable<TrendPoint> Trend => new[]
     {
-        new TrendPoint("2025-08-01", 76, 22),
-        new TrendPoint("2025-08-05", 78, 29),
-        new TrendPoint("2025-08-09", 81, 35),
-        new TrendPoint("2025-08-13", 83, 32),
-        new TrendPoint("2025-08-17", 84, 41),
-        new TrendPoint("2025-08-21", 82, 47)
+        new TrendPoint("2025-03-01", 76, 22, 6.3, 2.3),
+        new TrendPoint("2025-04-01", 78, 29, 6.1, 2.1),
+        new TrendPoint("2025-05-01", 81, 35, 5.7, 1.9),
+        new TrendPoint("2025-06-01", 83, 32, 5.4, 1.8),
+        new TrendPoint("2025-07-01", 84, 41, 5.2, 1.6),
+        new TrendPoint("2025-08-01", 82, 47, 5.0, 1.7)
     };
 
     public static IEnumerable<ViolationType> Violations => new[]
@@ -34,6 +42,9 @@ public static class DataStore
         new ViolationType("DAST Blockers", 5),
         new ViolationType("SBOM/License Violations", 6)
     };
+
+    public static int OpenViolations => Violations.Sum(v => v.Count);
+    public static int UpcomingCount => Upcoming.Count();
 
     public static IEnumerable<ReleaseRecord> NonCompliantReleases => new[]
     {

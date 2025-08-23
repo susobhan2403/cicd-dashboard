@@ -1021,9 +1021,6 @@ C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\
 C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\compressed\1kp8mn59ey-tptq2av103.gz
 C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\compressed\ng50ubixu2-lfu7j35m59.gz
 C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\compressed\ed3bqi7kw4-oyz0vx2fzb.gz
-C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\compressed\7d48khmysk-phxbbqmdb7.gz
-C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\compressed\wosypoqb4f-bey68bfi3y.gz
-C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\compressed\wvrfxv22zd-wdl2gkjzbq.gz
 C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\staticwebassets.development.json
@@ -1034,3 +1031,6 @@ C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\
 C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\refint\CicdDashboard.Blazor.dll
 C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\CicdDashboard.Blazor.pdb
 C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\ref\CicdDashboard.Blazor.dll
+C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\compressed\7d48khmysk-r5dszia8x6.gz
+C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\compressed\wosypoqb4f-8onnu3fln0.gz
+C:\Users\susob\OneDrive\Documents\CICD-Dashboard\CicdDashboard.Blazor\obj\Debug\net8.0\compressed\wvrfxv22zd-3nn7rch54r.gz

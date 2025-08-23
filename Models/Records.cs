@@ -2,7 +2,7 @@
 
 public record Kpis(int OrgCompliance, int DeploymentsToday, double ChangeFailureRate, double MttrHours);
 public record StreamCompliance(string Stream, int Compliant, int NonCompliant);
-public record TrendPoint(string Date, int Compliance, int Releases);
+public record TrendPoint(string Date, int Compliance, int Releases, double Cfr, double Mttr);
 public record ViolationType(string Type, int Count);
 public record ReleaseRecord(
     string Date,
