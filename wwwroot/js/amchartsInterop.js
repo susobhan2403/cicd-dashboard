@@ -59,9 +59,14 @@ window.amchartsInterop = (function () {
 
     function createGauge(divId, value, max) {
         if (!ensureLibs()) return;
+        if (!am5radar || (!am5radar.GaugeChart && !am5radar.RadarChart)) {
+            console.error("amCharts gauge module not loaded. Check CDN tags in index.html.");
+            return;
+        }
         const root = newRoot(divId);
+        const GaugeChartClass = am5radar.GaugeChart || am5radar.RadarChart;
         const chart = root.container.children.push(
-            am5radar.GaugeChart.new(root, { startAngle: 180, endAngle: 360 })
+            GaugeChartClass.new(root, { startAngle: 180, endAngle: 360 })
         );
         const axisRenderer = am5radar.AxisRendererCircular.new(root, { innerRadius: -20 });
         axisRenderer.grid.template.set('visible', false);
