@@ -20,9 +20,9 @@
     {
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkCompliance", DataStore.SparklineCompliance);
+            await JS.InvokeVoidAsync("amchartsInterop.createGauge", "gaugeCompliance", DataStore.Kpis.OrgCompliance, 100);
+            await JS.InvokeVoidAsync("amchartsInterop.createGauge", "gaugeCfr", DataStore.Kpis.ChangeFailureRate, 10);
             await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkDeploys", DataStore.SparklineDeploys);
-            await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkCfr", DataStore.SparklineCfr);
             await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkMttr", DataStore.SparklineMttr);
             await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkViol", DataStore.SparklineViolations);
             await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkUpcoming", DataStore.SparklineUpcoming);
@@ -44,9 +44,9 @@
         await JS.InvokeVoidAsync("amchartsInterop.destroy", "performanceChart");
         await JS.InvokeVoidAsync("amchartsInterop.destroy", "violationsDonut");
         await JS.InvokeVoidAsync("amchartsInterop.destroy", "byStreamChart");
-        await JS.InvokeVoidAsync("amchartsInterop.destroy", "sparkCompliance");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "gaugeCompliance");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "gaugeCfr");
         await JS.InvokeVoidAsync("amchartsInterop.destroy", "sparkDeploys");
-        await JS.InvokeVoidAsync("amchartsInterop.destroy", "sparkCfr");
         await JS.InvokeVoidAsync("amchartsInterop.destroy", "sparkMttr");
         await JS.InvokeVoidAsync("amchartsInterop.destroy", "sparkViol");
         await JS.InvokeVoidAsync("amchartsInterop.destroy", "sparkUpcoming");
@@ -55,19 +55,22 @@
 
 @* region KPI Tiles *@
 <div class="row g-3 mb-4">
-    <div class="col-6 col-sm-4 col-xl-2">
+    <div class="col-12 col-lg-6">
         <div class="card kpi-card p-3 h-100">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <div class="kpi-title">Org Compliance</div>
-                    <div class="kpi-value">@DataStore.Kpis.OrgCompliance%</div>
-                </div>
-                <div id="sparkCompliance" class="sparkline"></div>
-            </div>
-            <div class="kpi-caption">Weighted gates</div>
+            <div class="kpi-title mb-2">Org Compliance</div>
+            <div id="gaugeCompliance" class="chart" style="height:180px"></div>
         </div>
     </div>
-    <div class="col-6 col-sm-4 col-xl-2">
+    <div class="col-12 col-lg-6">
+        <div class="card kpi-card p-3 h-100">
+            <div class="kpi-title mb-2">CFR</div>
+            <div id="gaugeCfr" class="chart" style="height:180px"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
         <div class="card kpi-card p-3 h-100">
             <div class="d-flex justify-content-between">
                 <div>
@@ -79,19 +82,7 @@
             <div class="kpi-caption">Today</div>
         </div>
     </div>
-    <div class="col-6 col-sm-4 col-xl-2">
-        <div class="card kpi-card p-3 h-100">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <div class="kpi-title">CFR</div>
-                    <div class="kpi-value">@DataStore.Kpis.ChangeFailureRate%</div>
-                </div>
-                <div id="sparkCfr" class="sparkline"></div>
-            </div>
-            <div class="kpi-caption">Last 30 days</div>
-        </div>
-    </div>
-    <div class="col-6 col-sm-4 col-xl-2">
+    <div class="col-6 col-md-3">
         <div class="card kpi-card p-3 h-100">
             <div class="d-flex justify-content-between">
                 <div>
@@ -103,7 +94,7 @@
             <div class="kpi-caption">Hours to restore</div>
         </div>
     </div>
-    <div class="col-6 col-sm-4 col-xl-2">
+    <div class="col-6 col-md-3">
         <div class="card kpi-card p-3 h-100">
             <div class="d-flex justify-content-between">
                 <div>
@@ -115,7 +106,7 @@
             <div class="kpi-caption">Across all apps</div>
         </div>
     </div>
-    <div class="col-6 col-sm-4 col-xl-2">
+    <div class="col-6 col-md-3">
         <div class="card kpi-card p-3 h-100">
             <div class="d-flex justify-content-between">
                 <div>

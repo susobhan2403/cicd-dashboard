@@ -3,7 +3,7 @@
 window.amchartsInterop = (function () {
     const roots = {};
     function ensureLibs() {
-        if (!window.am5 || !window.am5xy || !window.am5percent || !window.am5themes_Animated) {
+        if (!window.am5 || !window.am5xy || !window.am5percent || !window.am5radar || !window.am5themes_Animated) {
             console.error("amCharts v5 libraries not loaded. Check CDN tags in index.html.");
             return false;
         }
@@ -57,6 +57,40 @@ window.amchartsInterop = (function () {
         series.data.setAll(data.map((v, i) => ({ i, v })));
     }
 
+    function createGauge(divId, value, max) {
+        if (!ensureLibs()) return;
+        const root = newRoot(divId);
+        const chart = root.container.children.push(
+            am5radar.GaugeChart.new(root, { startAngle: 180, endAngle: 360 })
+        );
+        const axisRenderer = am5radar.AxisRendererCircular.new(root, { innerRadius: -20 });
+        axisRenderer.grid.template.set('visible', false);
+        const xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, { min: 0, max, strictMinMax: true, renderer: axisRenderer }));
+
+        const ranges = [
+            { start: 0, end: max * 0.5, color: 0xdc2626 },
+            { start: max * 0.5, end: max * 0.8, color: 0xf59e0b },
+            { start: max * 0.8, end: max, color: 0x16a34a }
+        ];
+        ranges.forEach(r => {
+            const dataItem = xAxis.makeDataItem({ value: r.start, endValue: r.end });
+            const range = xAxis.createAxisRange(dataItem);
+            range.get('axisFill').setAll({ visible: true, fillOpacity: 1, fill: am5.color(r.color) });
+        });
+
+        const hand = chart.hands.push(am5radar.ClockHand.new(root, { pinRadius: 0, radius: am5.percent(90), bottomWidth: 10 }));
+        hand.axis = xAxis;
+        hand.set('value', value);
+
+        chart.children.unshift(am5.Label.new(root, {
+            text: value.toFixed(1) + '%',
+            centerX: am5.percent(50),
+            centerY: am5.percent(50),
+            fontSize: 24,
+            fontWeight: '600'
+        }));
+    }
+
     function createComplianceDonut(divId, compliantPercent) {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
@@ -88,7 +122,7 @@ window.amchartsInterop = (function () {
     function createComplianceByStream(divId, data) {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
-        root.container.setAll({ layout: root.verticalLayout, paddingTop: 20, paddingRight: 20, paddingBottom: 20, paddingLeft: 20 });
+        root.container.setAll({ layout: root.verticalLayout, paddingTop: 20, paddingRight: 20, paddingBottom: 20, paddingLeft: 20, height: am5.percent(100) });
 
         const chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout }));
         chart.setAll({ centerX: am5.p50, x: am5.p50 });
@@ -203,7 +237,7 @@ window.amchartsInterop = (function () {
         const root = newRoot(divId);
         root.container.setAll({ layout: root.verticalLayout, paddingTop: 20, paddingRight: 20, paddingBottom: 20, paddingLeft: 20 });
         const chart = root.container.children.push(
-            am5percent.PieChart.new(root, { innerRadius: am5.percent(60) })
+            am5percent.PieChart.new(root, { innerRadius: am5.percent(60), height: am5.percent(70) })
         );
         const series = chart.series.push(
             am5percent.PieSeries.new(root, { valueField: 'count', categoryField: 'type' })
@@ -244,5 +278,5 @@ window.amchartsInterop = (function () {
         series.data.setAll(data);
     }
 
-    return { createComplianceDonut, createComplianceByStream, createPerformanceChart, createViolationsDonut, createSparkline, createViolationsBar, destroy };
+    return { createComplianceDonut, createComplianceByStream, createPerformanceChart, createViolationsDonut, createSparkline, createGauge, createViolationsBar, destroy };
 })();
