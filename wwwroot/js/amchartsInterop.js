@@ -88,10 +88,16 @@ window.amchartsInterop = (function () {
     function createComplianceByStream(divId, data) {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
-        const chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout, paddingTop: 10, paddingRight: 10, paddingBottom: 10, paddingLeft: 10 }));
+        root.container.setAll({ layout: root.verticalLayout, paddingTop: 20, paddingRight: 20, paddingBottom: 20, paddingLeft: 20 });
+
+        const chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout }));
+        chart.setAll({ centerX: am5.p50, x: am5.p50 });
+
+        const xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 20 });
+        xRenderer.labels.template.setAll({ fontSize: 12 });
         const xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
             categoryField: "stream",
-            renderer: am5xy.AxisRendererX.new(root, { minGridDistance: 20 })
+            renderer: xRenderer
         }));
         const yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, { renderer: am5xy.AxisRendererY.new(root, {}) }));
 
@@ -128,7 +134,7 @@ window.amchartsInterop = (function () {
             marginTop: 10,
             layout: root.horizontalLayout
         }));
-        legend.labels.template.setAll({ oversizedBehavior: 'wrap' });
+        legend.labels.template.setAll({ oversizedBehavior: 'wrap', fontSize: 12 });
         legend.data.setAll([s1, s2]);
 
         xAxis.data.setAll(data);
@@ -139,13 +145,17 @@ window.amchartsInterop = (function () {
     function createPerformanceChart(divId, data, metric) {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
-        const chart = root.container.children.push(am5xy.XYChart.new(root, { paddingTop: 10, paddingRight: 10, paddingBottom: 10, paddingLeft: 10, layout: root.verticalLayout }));
+        root.container.setAll({ layout: root.verticalLayout, paddingTop: 20, paddingRight: 20, paddingBottom: 20, paddingLeft: 20 });
+
+        const chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout }));
+        chart.setAll({ centerX: am5.p50, x: am5.p50 });
 
         const xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 80 });
         xRenderer.labels.template.setAll({
             rotation: -45,
             centerY: am5.p50,
-            centerX: am5.p100
+            centerX: am5.p100,
+            fontSize: 12
         });
 
         const xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
@@ -180,7 +190,7 @@ window.amchartsInterop = (function () {
             marginTop: 10,
             layout: root.horizontalLayout
         }));
-        legend.labels.template.setAll({ oversizedBehavior: 'wrap' });
+        legend.labels.template.setAll({ oversizedBehavior: 'wrap', fontSize: 12 });
         legend.data.setAll([line, cols]);
 
         const parsed = data.map(d => ({ ...d, date: new Date(d.date).getTime() }));
@@ -191,8 +201,9 @@ window.amchartsInterop = (function () {
     function createViolationsDonut(divId, data) {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
+        root.container.setAll({ layout: root.verticalLayout, paddingTop: 20, paddingRight: 20, paddingBottom: 20, paddingLeft: 20 });
         const chart = root.container.children.push(
-            am5percent.PieChart.new(root, { innerRadius: am5.percent(60), paddingTop: 10, paddingRight: 10, paddingBottom: 10, paddingLeft: 10 })
+            am5percent.PieChart.new(root, { innerRadius: am5.percent(60) })
         );
         const series = chart.series.push(
             am5percent.PieSeries.new(root, { valueField: 'count', categoryField: 'type' })
@@ -217,7 +228,7 @@ window.amchartsInterop = (function () {
             marginTop: 10,
             layout: am5.GridLayout.new(root, { maxColumns: 2 })
         }));
-        legend.labels.template.setAll({ oversizedBehavior: 'wrap' });
+        legend.labels.template.setAll({ oversizedBehavior: 'wrap', fontSize: 12 });
         legend.data.setAll(series.dataItems);
     }
 
