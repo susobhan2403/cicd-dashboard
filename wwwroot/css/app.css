@@ -31,6 +31,11 @@ body {
     box-shadow: var(--shadow-card);
 }
 
+.kpi-card {
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 2px 4px rgba(15,23,42,0.12);
+}
+
 .kpi-card .sparkline {
     width: 60px;
     height: 24px;
@@ -110,6 +115,37 @@ body {
     background: var(--card);
     z-index: 1;
     font-weight: 600;
+}
+
+.table-modern {
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+}
+
+.table-modern thead th {
+    border-bottom: none;
+    color: var(--ink-600);
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+.table-modern tbody tr {
+    background: var(--card);
+    box-shadow: var(--shadow-card);
+}
+
+.table-modern tbody td:first-child {
+    border-top-left-radius: var(--radius-xl);
+    border-bottom-left-radius: var(--radius-xl);
+}
+
+.table-modern tbody td:last-child {
+    border-top-right-radius: var(--radius-xl);
+    border-bottom-right-radius: var(--radius-xl);
+}
+
+.table-modern tbody tr td {
+    border-top: none;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
