@@ -56,13 +56,13 @@
 @* region KPI Tiles *@
 <div class="row g-3 mb-4">
     <div class="col-12 col-lg-6">
-        <div class="card kpi-card p-3 h-100">
+        <div class="card kpi-card p-3 h-100 text-center">
             <div class="kpi-title mb-2">Org Compliance</div>
             <div id="gaugeCompliance" class="chart" style="height:180px"></div>
         </div>
     </div>
     <div class="col-12 col-lg-6">
-        <div class="card kpi-card p-3 h-100">
+        <div class="card kpi-card p-3 h-100 text-center">
             <div class="kpi-title mb-2">CFR</div>
             <div id="gaugeCfr" class="chart" style="height:180px"></div>
         </div>
@@ -71,50 +71,34 @@
 
 <div class="row g-3 mb-4">
     <div class="col-6 col-md-3">
-        <div class="card kpi-card p-3 h-100">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <div class="kpi-title">Deployments</div>
-                    <div class="kpi-value">@DataStore.Kpis.DeploymentsToday</div>
-                </div>
-                <div id="sparkDeploys" class="sparkline"></div>
-            </div>
+        <div class="card kpi-card p-3 h-100 text-center">
+            <div class="kpi-title">Deployments</div>
+            <div class="kpi-value">@DataStore.Kpis.DeploymentsToday</div>
+            <div id="sparkDeploys" class="sparkline mx-auto my-2"></div>
             <div class="kpi-caption">Today</div>
         </div>
     </div>
     <div class="col-6 col-md-3">
-        <div class="card kpi-card p-3 h-100">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <div class="kpi-title">MTTR</div>
-                    <div class="kpi-value">@DataStore.Kpis.MttrHours h</div>
-                </div>
-                <div id="sparkMttr" class="sparkline"></div>
-            </div>
+        <div class="card kpi-card p-3 h-100 text-center">
+            <div class="kpi-title">MTTR</div>
+            <div class="kpi-value">@DataStore.Kpis.MttrHours h</div>
+            <div id="sparkMttr" class="sparkline mx-auto my-2"></div>
             <div class="kpi-caption">Hours to restore</div>
         </div>
     </div>
     <div class="col-6 col-md-3">
-        <div class="card kpi-card p-3 h-100">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <div class="kpi-title">Open Violations</div>
-                    <div class="kpi-value">@DataStore.OpenViolations</div>
-                </div>
-                <div id="sparkViol" class="sparkline"></div>
-            </div>
+        <div class="card kpi-card p-3 h-100 text-center">
+            <div class="kpi-title">Open Violations</div>
+            <div class="kpi-value">@DataStore.OpenViolations</div>
+            <div id="sparkViol" class="sparkline mx-auto my-2"></div>
             <div class="kpi-caption">Across all apps</div>
         </div>
     </div>
     <div class="col-6 col-md-3">
-        <div class="card kpi-card p-3 h-100">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <div class="kpi-title">Upcoming</div>
-                    <div class="kpi-value">@DataStore.UpcomingCount</div>
-                </div>
-                <div id="sparkUpcoming" class="sparkline"></div>
-            </div>
+        <div class="card kpi-card p-3 h-100 text-center">
+            <div class="kpi-title">Upcoming</div>
+            <div class="kpi-value">@DataStore.UpcomingCount</div>
+            <div id="sparkUpcoming" class="sparkline mx-auto my-2"></div>
             <div class="kpi-caption">Next 48h</div>
         </div>
     </div>
