@@ -306,17 +306,17 @@ window.amchartsInterop = (function () {
             })
         );
 
-        series.set("colors", am5.ColorSet.new(root, {
-            colors: [
-                am5.color(0x73556E),
-                am5.color(0x9FA1A6),
-                am5.color(0xF2AA6B),
-                am5.color(0xF28F6B),
-                am5.color(0xA95A52),
-                am5.color(0xE35B5D),
-                am5.color(0xFFA446)
-            ]
-        }))
+        //series.set("colors", am5.ColorSet.new(root, {
+        //    colors: [
+        //        am5.color(0x73556E),
+        //        am5.color(0x9FA1A6),
+        //        am5.color(0xF2AA6B),
+        //        am5.color(0xF28F6B),
+        //        am5.color(0xA95A52),
+        //        am5.color(0xE35B5D),
+        //        am5.color(0xFFA446)
+        //    ]
+        //}))
 
         var gradient = am5.RadialGradient.new(root, {
             stops: [
