@@ -21,6 +21,7 @@ window.amchartsInterop = (function () {
         const root = am5.Root.new(divId);
         root.setThemes([am5themes_Animated.new(root)]);
         root.dom.style.overflow = 'hidden';
+        root.dom.style.backgroundColor = 'transparent';
         root.dom.classList.remove('skeleton');
         const isDark = document.body.classList.contains('theme-dark');
         root.interfaceColors.set('text', am5.color(isDark ? 0xf8fafc : 0x0f172a));
@@ -62,14 +63,13 @@ window.amchartsInterop = (function () {
 
     function createGauge(divId, value, max) {
         if (!ensureLibs()) return;
-        if (!am5radar || (!am5radar.GaugeChart && !am5radar.RadarChart)) {
+        if (!am5radar || !am5radar.GaugeChart) {
             console.error("amCharts gauge module not loaded. Check CDN tags in index.html.");
             return;
         }
         const root = newRoot(divId);
-        const GaugeChartClass = am5radar.GaugeChart || am5radar.RadarChart;
         const chart = root.container.children.push(
-            GaugeChartClass.new(root, { startAngle: 180, endAngle: 360 })
+            am5radar.GaugeChart.new(root, { startAngle: 180, endAngle: 360 })
         );
         const axisRenderer = am5radar.AxisRendererCircular.new(root, { innerRadius: -20 });
         axisRenderer.grid.template.set('visible', false);
@@ -86,9 +86,7 @@ window.amchartsInterop = (function () {
             range.get('axisFill').setAll({ visible: true, fillOpacity: 1, fill: am5.color(r.color) });
         });
 
-        const hand = am5radar.ClockHand.new(root, { pinRadius: 0, radius: am5.percent(90), bottomWidth: 10 });
-        const handContainer = chart.hands || chart.children;
-        handContainer.push(hand);
+        const hand = chart.hands.push(am5radar.ClockHand.new(root, { pinRadius: 0, radius: am5.percent(90), bottomWidth: 10 }));
         hand.axis = xAxis;
         hand.set('value', value);
 
@@ -99,6 +97,7 @@ window.amchartsInterop = (function () {
             fontSize: 24,
             fontWeight: '600'
         }));
+        chart.appear(0, 0);
     }
 
     function createComplianceDonut(divId, compliantPercent) {
@@ -245,9 +244,9 @@ window.amchartsInterop = (function () {
     function createViolationsDonut(divId, data) {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
-        root.container.setAll({ layout: root.horizontalLayout, paddingTop: 20, paddingRight: 20, paddingBottom: 20, paddingLeft: 20 });
+        root.container.setAll({ layout: root.verticalLayout, paddingTop: 20, paddingRight: 20, paddingBottom: 20, paddingLeft: 20 });
         const chart = root.container.children.push(
-            am5percent.PieChart.new(root, { innerRadius: am5.percent(60), width: am5.percent(60) })
+            am5percent.PieChart.new(root, { innerRadius: am5.percent(60) })
         );
         const series = chart.series.push(
             am5percent.PieSeries.new(root, { valueField: 'count', categoryField: 'type' })
@@ -267,12 +266,12 @@ window.amchartsInterop = (function () {
             })
         );
         const legend = root.container.children.push(am5.Legend.new(root, {
-            marginLeft: 20,
-            centerY: am5.percent(50),
-            y: am5.percent(50),
-            width: am5.percent(40),
+            centerX: am5.p50,
+            x: am5.p50,
+            marginTop: 20,
             layout: root.verticalLayout
         }));
+        legend.setAll({ width: am5.percent(100) });
         legend.labels.template.setAll({ oversizedBehavior: 'wrap', fontSize: 12 });
         legend.data.setAll(series.dataItems);
         series.appear(0, 0);
