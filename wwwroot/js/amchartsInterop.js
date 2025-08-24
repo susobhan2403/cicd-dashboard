@@ -244,9 +244,9 @@ window.amchartsInterop = (function () {
     function createViolationsDonut(divId, data) {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
-        root.container.setAll({ layout: root.verticalLayout, paddingTop: 20, paddingRight: 20, paddingBottom: 20, paddingLeft: 20 });
+        root.container.setAll({ paddingTop: 20, paddingRight: 20, paddingBottom: 20, paddingLeft: 20 });
         const chart = root.container.children.push(
-            am5percent.PieChart.new(root, { innerRadius: am5.percent(60) })
+            am5percent.PieChart.new(root, { innerRadius: am5.percent(60), layout: root.verticalLayout, height: am5.percent(100) })
         );
         const series = chart.series.push(
             am5percent.PieSeries.new(root, { valueField: 'count', categoryField: 'type' })
@@ -265,13 +265,14 @@ window.amchartsInterop = (function () {
                 fontWeight: '600'
             })
         );
-        const legend = root.container.children.push(am5.Legend.new(root, {
-            centerX: am5.p50,
-            x: am5.p50,
-            marginTop: 20,
-            layout: root.verticalLayout
-        }));
-        legend.setAll({ width: am5.percent(100) });
+        const legend = chart.children.push(
+            am5.Legend.new(root, {
+                centerX: am5.p50,
+                x: am5.p50,
+                marginTop: 20,
+                layout: root.verticalLayout
+            })
+        );
         legend.labels.template.setAll({ oversizedBehavior: 'wrap', fontSize: 12 });
         legend.data.setAll(series.dataItems);
         series.appear(0, 0);
