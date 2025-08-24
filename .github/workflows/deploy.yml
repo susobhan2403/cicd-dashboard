@@ -32,7 +32,7 @@ jobs:
 
       # Build & publish to a known folder
       - name: Publish
-        run: dotnet publish ./CicdDashbaord.sln -c Release -o publish
+        run: dotnet publish ./CicdDashbaord/CicdDashbaord.csproj -c Release -o publish
 
       # Rewrite <base href> for GitHub Pages (project site); skip if you use user/org site
       - name: Rewrite base href for project site
