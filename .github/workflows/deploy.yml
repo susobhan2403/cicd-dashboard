@@ -1,9 +1,10 @@
+---
 name: Deploy Blazor WASM to GitHub Pages
 
-on:
+'on':
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches: [main]
+  workflow_dispatch: {}
 
 permissions:
   contents: read
@@ -11,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -26,31 +27,34 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      # Needed only if you use AOT or other wasm workloads; harmless otherwise
       - name: Install wasm tools
         run: dotnet workload install wasm-tools
 
-      # Build & publish to a known folder
       - name: Publish
-        run: dotnet publish ./CicdDashbaord/CicdDashbaord.csproj -c Release -o publish
+        run: |
+          dotnet publish ./CicdDashbaord/CicdDashbaord.csproj \
+            -c Release \
+            -o publish
 
-      # Rewrite <base href> for GitHub Pages (project site); skip if you use user/org site
       - name: Rewrite base href for project site
         run: |
-          INDEX_FILE="publish/wwwroot/index.html"
+          INDEX_FILE=publish/wwwroot/index.html
           if [ -f "$INDEX_FILE" ]; then
-            sed -i 's#<base href="/" />#<base href="/cicd-dashboard/" />#' "$INDEX_FILE"
-            sed -i 's#<base href="/"\/>#<base href="/cicd-dashboard/"\/>#' "$INDEX_FILE"
+            REPO_NAME="$(basename "$GITHUB_REPOSITORY")"
+            BASE_TAG="<base href=\"/$REPO_NAME/\" />"
+            if grep -q '<base href=' "$INDEX_FILE"; then
+              sed -i "s#<base href=\"/\".*>#${BASE_TAG}#" "$INDEX_FILE"
+            else
+              sed -i "s#<head>#<head>${BASE_TAG}#" "$INDEX_FILE"
+            fi
           fi
 
-      # SPA fallback: copy index.html to 404.html so client-side routes work
       - name: SPA 404 fallback
         run: |
           if [ -f publish/wwwroot/index.html ]; then
             cp publish/wwwroot/index.html publish/wwwroot/404.html
           fi
 
-      # Upload the static site to the Pages artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
