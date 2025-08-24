@@ -87,7 +87,9 @@ window.amchartsInterop = (function () {
             range.get('axisFill').setAll({ visible: true, fillOpacity: 1, fill: am5.color(r.color) });
         });
 
-        const hand = chart.hands.push(am5radar.ClockHand.new(root, { pinRadius: 0, radius: am5.percent(90), bottomWidth: 10 }));
+        const hand = (chart.hands ? chart.hands : chart.children).push(
+            am5radar.ClockHand.new(root, { pinRadius: 0, radius: am5.percent(90), bottomWidth: 10 })
+        );
         hand.axis = xAxis;
         hand.set('value', value);
 
