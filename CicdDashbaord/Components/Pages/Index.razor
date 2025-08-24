@@ -1,0 +1,221 @@
+﻿@page "/"
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+
+@code {
+    [CascadingParameter] public MainLayout.DashboardFilters Filters { get; set; } = new();
+    private string selectedMetric = "compliance";
+
+    private IEnumerable<ReleaseRecord> FilteredNonCompliant =>
+        DataStore.NonCompliantReleases.Where(r =>
+            (Filters.Environment == "All" || r.Env == Filters.Environment) &&
+            (string.IsNullOrWhiteSpace(Filters.Application) || r.App.Contains(Filters.Application, StringComparison.OrdinalIgnoreCase)));
+
+    private IEnumerable<UpcomingRelease> FilteredUpcoming =>
+        DataStore.Upcoming.Where(r =>
+            (Filters.Environment == "All" || r.Env == Filters.Environment) &&
+            (string.IsNullOrWhiteSpace(Filters.Application) || r.App.Contains(Filters.Application, StringComparison.OrdinalIgnoreCase)));
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("amchartsInterop.createGauge", "gaugeCompliance", DataStore.Kpis.OrgCompliance, 100);
+            await JS.InvokeVoidAsync("amchartsInterop.createGauge", "gaugeCfr", DataStore.Kpis.ChangeFailureRate, 10);
+            await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkDeploys", DataStore.SparklineDeploys);
+            await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkMttr", DataStore.SparklineMttr);
+            await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkViol", DataStore.SparklineViolations);
+            await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkUpcoming", DataStore.SparklineUpcoming);
+
+            await JS.InvokeVoidAsync("amchartsInterop.createPerformanceChart", "performanceChart", DataStore.Trend, selectedMetric);
+            await JS.InvokeVoidAsync("amchartsInterop.createViolationsDonut", "violationsDonut", DataStore.Violations);
+            await JS.InvokeVoidAsync("amchartsInterop.createComplianceByStream", "byStreamChart", DataStore.Streams);
+        }
+    }
+
+    private async Task ChangeMetric(string metric)
+    {
+        selectedMetric = metric;
+        await JS.InvokeVoidAsync("amchartsInterop.createPerformanceChart", "performanceChart", DataStore.Trend, selectedMetric);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "performanceChart");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "violationsDonut");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "byStreamChart");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "gaugeCompliance");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "gaugeCfr");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "sparkDeploys");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "sparkMttr");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "sparkViol");
+        await JS.InvokeVoidAsync("amchartsInterop.destroy", "sparkUpcoming");
+    }
+}
+
+@* region KPI Tiles *@
+<div class="row g-3 mb-4">
+    <div class="col-12 col-lg-6">
+        <div class="card kpi-card p-3 h-100 text-center">
+            <div class="kpi-title mb-2">Org Compliance</div>
+            <div id="gaugeCompliance" class="chart" style="height:180px"></div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="card kpi-card p-3 h-100 text-center">
+            <div class="kpi-title mb-2">CFR</div>
+            <div id="gaugeCfr" class="chart" style="height:180px"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+        <div class="card kpi-card p-3 h-100 text-center">
+            <div class="kpi-title">Deployments</div>
+            <div class="kpi-value">@DataStore.Kpis.DeploymentsToday</div>
+            <div id="sparkDeploys" class="sparkline mx-auto my-2"></div>
+            <div class="kpi-caption">Today</div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="card kpi-card p-3 h-100 text-center">
+            <div class="kpi-title">MTTR</div>
+            <div class="kpi-value">@DataStore.Kpis.MttrHours h</div>
+            <div id="sparkMttr" class="sparkline mx-auto my-2"></div>
+            <div class="kpi-caption">Hours to restore</div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="card kpi-card p-3 h-100 text-center">
+            <div class="kpi-title">Open Violations</div>
+            <div class="kpi-value">@DataStore.OpenViolations</div>
+            <div id="sparkViol" class="sparkline mx-auto my-2"></div>
+            <div class="kpi-caption">Across all apps</div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="card kpi-card p-3 h-100 text-center">
+            <div class="kpi-title">Upcoming</div>
+            <div class="kpi-value">@DataStore.UpcomingCount</div>
+            <div id="sparkUpcoming" class="sparkline mx-auto my-2"></div>
+            <div class="kpi-caption">Next 48h</div>
+        </div>
+    </div>
+</div>
+@* endregion *@
+
+@* region Row 2 Charts *@
+<div class="row g-3 mb-4">
+    <div class="col-lg-8">
+        <div class="card p-3 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="kpi-title text-uppercase">Performance vs Months</div>
+                <div class="btn-group btn-group-sm" role="group" aria-label="Metric selector">
+                    <button class="btn btn-outline-primary @(selectedMetric == "compliance" ? "active" : "")" @onclick='() => ChangeMetric("compliance")'>Compliance %</button>
+                    <button class="btn btn-outline-primary @(selectedMetric == "cfr" ? "active" : "")" @onclick='() => ChangeMetric("cfr")'>CFR</button>
+                    <button class="btn btn-outline-primary @(selectedMetric == "mttr" ? "active" : "")" @onclick='() => ChangeMetric("mttr")'>MTTR</button>
+                </div>
+            </div>
+            <div id="performanceChart" class="chart skeleton" style="height:500px"></div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card p-3 h-100">
+            <div class="kpi-title text-uppercase mb-2">Share by Violations</div>
+            <div id="violationsDonut" class="chart skeleton" style="height:500px"></div>
+        </div>
+    </div>
+</div>
+@* endregion *@
+
+@* region Compliance by Value Stream *@
+<div class="card p-3 mb-4">
+    <div class="kpi-title text-uppercase mb-2">Compliance by Value Stream</div>
+    <div id="byStreamChart" class="chart skeleton" style="height:300px"></div>
+</div>
+@* endregion *@
+
+@* region Tables *@
+<div class="row g-3 mb-5">
+    <div class="col-lg-6">
+        <div class="card p-3 h-100">
+            <div class="kpi-title text-uppercase mb-2">Non-compliant Releases (48h)</div>
+            <div class="table-responsive">
+                <table class="table table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Date/Time</th>
+                            <th>Application</th>
+                            <th>Release</th>
+                            <th>Env</th>
+                            <th>Failed Gates</th>
+                            <th>Owner</th>
+                            <th>Risk</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var r in FilteredNonCompliant)
+                        {
+                            <tr>
+                                <td>@r.Date</td>
+                                <td>@r.App</td>
+                                <td>@r.Release</td>
+                                <td>@r.Env</td>
+                                <td>
+                                    @foreach (var g in r.FailedGates)
+                                    {
+                                        <span class="badge bg-danger-subtle text-danger-emphasis border badge-pill me-1">@g</span>
+                                    }
+                                </td>
+                                <td>@r.Owner</td>
+                                <td>
+                                    <div class="risk-bar mb-1" style="width:@r.Risk%"></div>
+                                    <span class="small">@r.Risk</span>
+                                </td>
+                                <td><a href="#" class="btn btn-sm btn-link p-0">View logs</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card p-3 h-100">
+            <div class="kpi-title text-uppercase mb-2">Upcoming Releases (24–48h)</div>
+            <div class="table-responsive">
+                <table class="table table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Schedule</th>
+                            <th>Application</th>
+                            <th>Release</th>
+                            <th>Env</th>
+                            <th>Readiness</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var u in FilteredUpcoming)
+                        {
+                            <tr>
+                                <td>@u.Date</td>
+                                <td>@u.App</td>
+                                <td>@u.Release</td>
+                                <td>@u.Env</td>
+                                <td style="min-width:140px;">
+                                    <div class="progress" style="height:20px; background-color:lightgray" role="progressbar" aria-label="Readiness" aria-valuenow="@u.Readiness" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar progress-bar-animated bg-success" style="width:@u.Readiness%">@u.Readiness%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@* endregion *@
