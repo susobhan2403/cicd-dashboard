@@ -32,7 +32,7 @@ body {
 }
 
 .kpi-card {
-    border: 1px solid rgba(15, 23, 42, 0.08);
+    border: 1px solid #caced4;
     box-shadow: 0 4px 6px rgba(15,23,42,0.1);
     background: linear-gradient(180deg, var(--card) 0%, var(--bg-100) 100%);
 }
