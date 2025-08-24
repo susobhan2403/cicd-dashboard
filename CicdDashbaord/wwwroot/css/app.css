@@ -67,6 +67,7 @@ body {
     color: var(--ink-600);
     text-transform: uppercase;
     text-align: center;
+    font-weight: 700;
 }
 
 .kpi-value {

@@ -25,7 +25,7 @@
             await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkDeploys", DataStore.SparklineDeploys);
             await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkMttr", DataStore.SparklineMttr);
             await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkViol", DataStore.SparklineViolations);
-            await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkUpcoming", DataStore.SparklineUpcoming);
+         //   await JS.InvokeVoidAsync("amchartsInterop.createSparkline", "sparkUpcoming", DataStore.SparklineUpcoming);
 
             await JS.InvokeVoidAsync("amchartsInterop.createPerformanceChart", "performanceChart", DataStore.Trend, selectedMetric);
             await JS.InvokeVoidAsync("amchartsInterop.createViolationsDonut", "violationsDonut", DataStore.Violations);
@@ -55,53 +55,50 @@
 
 @* region KPI Tiles *@
 <div class="row g-3 mb-4">
-    <div class="col-12 col-lg-6">
-        <div class="card kpi-card p-3 h-100 text-center">
+    <div class="col-3">
+        <div class="card kpi-card pt-3 h-100 text-center">
             <div class="kpi-title mb-2">Org Compliance</div>
-            <div id="gaugeCompliance" class="chart" style="height:180px"></div>
+            <div id="gaugeCompliance" class="chart" style="height:150px"></div>
         </div>
     </div>
-    <div class="col-12 col-lg-6">
-        <div class="card kpi-card p-3 h-100 text-center">
+    <div class="col-3">
+        <div class="card kpi-card pt-3 h-100 text-center">
             <div class="kpi-title mb-2">CFR</div>
-            <div id="gaugeCfr" class="chart" style="height:180px"></div>
+            <div id="gaugeCfr" class="chart" style="height:150px"></div>
         </div>
     </div>
-</div>
-
-<div class="row g-3 mb-4">
-    <div class="col-6 col-md-3">
-        <div class="card kpi-card p-3 h-100 text-center">
+    <div class="col-2">
+        <div class="card kpi-card pt-3 h-100 text-center">
             <div class="kpi-title">Deployments</div>
-            <div class="kpi-value">@DataStore.Kpis.DeploymentsToday</div>
+            <div class="kpi-value" style="font-size: 2.5rem;">@DataStore.Kpis.DeploymentsToday</div>
             <div id="sparkDeploys" class="sparkline mx-auto my-2"></div>
             <div class="kpi-caption">Today</div>
         </div>
     </div>
-    <div class="col-6 col-md-3">
-        <div class="card kpi-card p-3 h-100 text-center">
+    <div class="col-2">
+        <div class="card kpi-card pt-3 h-100 text-center">
             <div class="kpi-title">MTTR</div>
-            <div class="kpi-value">@DataStore.Kpis.MttrHours h</div>
+            <div class="kpi-value" style="font-size: 2.5rem;">@DataStore.Kpis.MttrHours h</div>
             <div id="sparkMttr" class="sparkline mx-auto my-2"></div>
             <div class="kpi-caption">Hours to restore</div>
         </div>
     </div>
-    <div class="col-6 col-md-3">
-        <div class="card kpi-card p-3 h-100 text-center">
+    <div class="col-2">
+        <div class="card kpi-card pt-3 h-100 text-center">
             <div class="kpi-title">Open Violations</div>
-            <div class="kpi-value">@DataStore.OpenViolations</div>
+            <div class="kpi-value" style="font-size: 2.5rem;">@DataStore.OpenViolations</div>
             <div id="sparkViol" class="sparkline mx-auto my-2"></div>
             <div class="kpi-caption">Across all apps</div>
         </div>
     </div>
-    <div class="col-6 col-md-3">
+   @*  <div class="col-6 col-md-3">
         <div class="card kpi-card p-3 h-100 text-center">
             <div class="kpi-title">Upcoming</div>
             <div class="kpi-value">@DataStore.UpcomingCount</div>
             <div id="sparkUpcoming" class="sparkline mx-auto my-2"></div>
             <div class="kpi-caption">Next 48h</div>
         </div>
-    </div>
+    </div> *@
 </div>
 @* endregion *@
 
@@ -121,7 +118,7 @@
         </div>
     </div>
     <div class="col-lg-4">
-        <div class="card p-3 h-100">
+        <div class="card pt-3 h-100">
             <div class="kpi-title text-uppercase mb-2">Share by Violations</div>
             <div id="violationsDonut" class="chart skeleton" style="height:500px"></div>
         </div>
@@ -139,7 +136,7 @@
 @* region Tables *@
 <div class="row g-3 mb-5">
     <div class="col-lg-6">
-        <div class="card p-3 h-100">
+        <div class="card pt-3 p-1 h-100">
             <div class="kpi-title text-uppercase mb-2">Non-compliant Releases (48h)</div>
             <div class="table-responsive">
                 <table class="table table table-striped table-bordered">
@@ -184,7 +181,7 @@
     </div>
 
     <div class="col-lg-6">
-        <div class="card p-3 h-100">
+        <div class="card pt-3 p-1 h-100">
             <div class="kpi-title text-uppercase mb-2">Upcoming Releases (24–48h)</div>
             <div class="table-responsive">
                 <table class="table table table-striped table-bordered">

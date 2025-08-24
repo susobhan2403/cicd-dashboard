@@ -78,8 +78,6 @@ window.amchartsInterop = (function () {
             })
         );
 
-        // Create axis and its renderer
-        // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Axes
         var axisRenderer = am5radar.AxisRendererCircular.new(root, {
             innerRadius: -10,
             strokeOpacity: 1,
@@ -292,39 +290,104 @@ window.amchartsInterop = (function () {
         if (!ensureLibs()) return;
         const root = newRoot(divId);
         root.container.setAll({ paddingTop: 1, paddingRight: 1, paddingBottom: 1, paddingLeft: 1, layout: root.verticalLayout });
-        const chart = root.container.children.push(
-            am5percent.PieChart.new(root, { innerRadius: am5.percent(60), height: am5.percent(100) })
+        var chart = root.container.children.push(
+            am5percent.PieChart.new(root, {
+                endAngle: 270,
+                layout: root.verticalLayout,
+                innerRadius: am5.percent(60)
+            })
         );
         chart.seriesContainer.setAll({ width: am5.percent(80), height: am5.percent(80) });
-        const series = chart.series.push(
-            am5percent.PieSeries.new(root, { valueField: 'count', categoryField: 'type' })
+        var series = chart.series.push(
+            am5percent.PieSeries.new(root, {
+                valueField: "count",
+                categoryField: "type",
+                endAngle: 270
+            })
         );
-        series.slices.template.setAll({ strokeOpacity: 0, tooltipText: '{category}: {valuePercentTotal.formatNumber("0.0")}%' });
-        series.labels.template.set('visible', false);
-        series.ticks.template.set('visible', false);
+
+        series.set("colors", am5.ColorSet.new(root, {
+            colors: [
+                am5.color(0x73556E),
+                am5.color(0x9FA1A6),
+                am5.color(0xF2AA6B),
+                am5.color(0xF28F6B),
+                am5.color(0xA95A52),
+                am5.color(0xE35B5D),
+                am5.color(0xFFA446)
+            ]
+        }))
+
+        var gradient = am5.RadialGradient.new(root, {
+            stops: [
+                { color: am5.color(0x000000) },
+                { color: am5.color(0x000000) },
+                {}
+            ]
+        })
+
+        series.slices.template.setAll({
+            fillGradient: gradient,
+            strokeWidth: 2,
+            stroke: am5.color(0xffffff),
+            cornerRadius: 10,
+            shadowOpacity: 0.1,
+            shadowOffsetX: 2,
+            shadowOffsetY: 2,
+            shadowColor: am5.color(0x000000),
+            fillPattern: am5.GrainPattern.new(root, {
+                maxOpacity: 0.2,
+                density: 0.5,
+                colors: [am5.color(0x000000)]
+            })
+        })
+
+        series.slices.template.states.create("hover", {
+            shadowOpacity: 1,
+            shadowBlur: 10
+        })
+
+        series.ticks.template.setAll({
+            strokeOpacity: 0.4,
+            strokeDasharray: [2, 2]
+        })
+        series.labels.template.set("visible", false);
+        series.ticks.template.set("visible", false);
+        series.states.create("hidden", {
+            endAngle: -90
+        });
         series.data.setAll(data);
-        const total = data.reduce((sum, d) => sum + d.count, 0);
-        chart.seriesContainer.children.push(
-            am5.Label.new(root, {
-                text: total.toString(),
-                centerX: am5.p50,
-                centerY: am5.p50,
-                fontSize: 22,
-                fontWeight: '600'
+
+        let legend = chart.children.push(am5.Legend.new(root, {
+            paddingLeft: 0,
+            paddingRight:0,
+            centerX: am5.percent(50),
+            x: am5.percent(50),
+            layout: am5.GridLayout.new(root, {
+                maxColumns: 3,
+                fixedWidthGrid: true
             })
-        );
-        const legend = root.container.children.push(
-            am5.Legend.new(root, {
-                centerX: am5.p50,
-                x: am5.p50,
-                marginTop: 10,
-                layout: root.verticalLayout
-            })
-        );
-        legend.labels.template.setAll({ oversizedBehavior: 'wrap', fontSize: 11 });
+        }));
+        legend.markers.template.setAll({
+            width: 20,
+            height: 20
+        });
+        legend.markerRectangles.template.adapters.add("fillGradient", function () {
+            return undefined;
+        })
+        legend.labels.template.setAll({
+            fontSize: 10,
+            fontWeight: "300"
+        });
+
+       // legend.valueLabels.template.set("forceHidden", true);
+        legend.valueLabels.template.setAll({
+            fontSize: 13,
+            fontWeight: "400"
+        });
         legend.data.setAll(series.dataItems);
-        series.appear(0, 0);
-        chart.appear(0, 0);
+
+        series.appear(1000, 100);
     }
 
     function createViolationsBar(divId, data) {

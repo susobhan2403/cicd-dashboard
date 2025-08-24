@@ -48,16 +48,16 @@ public static class DataStore
 
     public static IEnumerable<ReleaseRecord> NonCompliantReleases => new[]
     {
-        new ReleaseRecord("2025-08-22 21:14", "EazyFuel API", "v2.7.5", "UAT", new[] {"SAST high", "Coverage <80%"}, "DevOps – Payments", 72),
-        new ReleaseRecord("2025-08-22 19:05", "Cards Web", "v5.1.2", "PROD", new[] {"SBOM license"}, "Cards – Platform", 63),
-        new ReleaseRecord("2025-08-21 10:48", "Lending Core", "v3.9.0", "SIT", new[] {"Secrets scan"}, "Lending – Core", 58)
+        new ReleaseRecord("2025-08-22", "EazyFuel API", "v2.7.5", "UAT", new[] {"SAST high", "Coverage <80%"}, "DevOps – Payments", 72),
+        new ReleaseRecord("2025-08-22", "Cards Web", "v5.1.2", "PROD", new[] {"SBOM license"}, "Cards – Platform", 63),
+        new ReleaseRecord("2025-08-21", "Lending Core", "v3.9.0", "SIT", new[] {"Secrets scan"}, "Lending – Core", 58)
     };
 
     public static IEnumerable<UpcomingRelease> Upcoming => new[]
     {
-        new UpcomingRelease("2025-08-23 16:00", "Payments Switch", "v4.12.0", "PROD", 92),
-        new UpcomingRelease("2025-08-23 19:30", "Treasury Ops", "v1.8.4", "UAT", 88),
-        new UpcomingRelease("2025-08-24 09:00", "Channels Mobile", "v9.0.1", "PROD", 79)
+        new UpcomingRelease("2025-08-23", "Payments Switch", "v4.12.0", "PROD", 92),
+        new UpcomingRelease("2025-08-23", "Treasury Ops", "v1.8.4", "UAT", 88),
+        new UpcomingRelease("2025-08-24", "Channels Mobile", "v9.0.1", "PROD", 79)
     };
 
     public static readonly string[] MandatoryGates = new[]
